@@ -1,0 +1,228 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Reset e configurações globais */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inclui borda e padding no tamanho total */
+    outline: none; /* Remove contorno ao focar */
+    text-decoration: none; /* Remove sublinhado de links */
+    list-style: none; /* Remove marcadores de listas */
+    font-family: 'Overpass', sans-serif;
+}
+
+/* Variáveis globais de cor */
+:root{
+    --orange-500: #fb7413;
+    --white: #ffffff;
+    --grey-500: #959eac;
+    --grey-900: #252d37;
+    --grey-950: #121417;
+    --grey-nv: #8a888834;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Alinha horizontalmente */
+    background-color: var(--grey-950);
+    flex-direction: column;
+}
+
+/* Cartão principal */
+.card{
+    width: 400px;
+    padding: 30px 32px;
+    border-radius: 30px;
+    background-color: #252d37ab;
+    position: relative; /* Para posicionar elementos filhos absolutos */
+}
+
+/* Círculo com estrela */
+.card .star {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: var(--grey-nv);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+/* Título */
+.card h2{
+    font-size: 24px;
+    color: var(--white);
+}
+
+/* Parágrafos */
+.card p{
+    font-size: 15px;
+    color: var(--grey-500);
+    line-height: 24px;
+    margin-bottom: 32px;
+}
+
+/* Container dos botões de nota */
+.container{
+    display: flex;
+    justify-content: space-between; /* Espaço igual entre botões */
+    align-items: center;
+}
+
+/* Botões de nota */
+.container button{
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: var(--grey-nv);
+    border: var(--grey-nv);
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: var(--grey-500);
+    cursor: pointer;
+    transition-duration: 200ms; /* Animação suave */
+}
+
+/* Efeito hover nos botões de nota */
+.container button:hover{
+    color: var(--grey-950);
+    background-color: var(--orange-500);
+    font-weight: bolder;
+}
+
+/* Botão de nota ativo */
+.container button.active{
+    background-color: var(--grey-500);
+    color: var(--grey-950);
+    font-weight: bolder;
+}
+
+/* Botão principal de envio */
+.card #btn{
+    width: 100%;
+    height: 48px;
+    background-color: var(--orange-500);
+    border-radius: 24px;
+    text-align: center;
+    text-transform: uppercase; /* Texto maiúsculo */
+    color: var(--grey-950);
+    letter-spacing: 2px; /* Espaçamento entre letras */
+    font-weight: 900;
+    margin-top: 32px;
+    border: var(--orange-500);
+    transition-duration: 200ms;
+}
+
+/* Hover do botão principal de envio*/
+.card #btn:hover{
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+/* Tela de agradecimento oculta inicialmente */
+.card .thanks{
+    width: 100%; /* Ocupa toda a largura do card */
+    height: 100%; /* Toda a altura do card */
+    position: absolute; /* Posiciona em cima do card */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Fica sobre outros elementos */
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1F252D;
+    opacity: 0; /* Invisível */
+    visibility: hidden; /* Oculto */
+    transition-duration: 200ms;
+}
+
+/* Quando ativa, a tela de agradecimento aparece */
+.card .thanks.active{
+    opacity: 1; /* Visível */
+    visibility: visible; /* Visível */
+}
+
+/* Imagem dentro da tela de agradecimento */
+.card .thanks img{
+    display: block;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+/* Texto destacado (nota selecionada) */
+.card .thanks span{
+    display: inline-block;
+    line-height: 32px;
+    font-size: 15px;
+    color: var(--orange-500);
+    background-color: var(--grey-nv);
+    padding: 0 16px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+
+}
+
+/* Div dentro do span fica inline */
+.card .thanks span div{
+    display: inline;
+}
+
+/* Parágrafo na tela de agradecimento */
+.card .thanks p{
+    padding: 0 30px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.attribution { 
+    margin-top: 12px;
+    font-size: 11px; text-align: center; 
+    color: var(--grey-500);
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+
+
+/* Responsividade para telas menores */
+@media only screen and ( max-width: 600px){
+    body{
+        padding: 0 24px;
+    }
+    .card{
+        width: 100%;
+        padding: 22px;
+    }
+    .card .star{
+        width: 40px;
+        height: 40px;
+    }
+    .card h2{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .card p{
+        margin-bottom: 20px;
+    }
+    .container button{
+        width: 40px;
+        height: 40px;
+    }
+    .card #btn{
+        height: 35px;
+    }
+    .card .thanks{
+        margin-top: 20px;
+    }
+    .card .thanks p{
+        font-size: 12px;
+    }
+}
