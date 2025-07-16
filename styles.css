@@ -233,5 +233,11 @@ body{
     .card .thanks p{
         font-size: 12px;
     }
+    .card .thanks h2{
+        margin-bottom: 0px;
+    }
+    .card .thanks span{
+        margin-bottom: 30px;
+    }
     
 }
