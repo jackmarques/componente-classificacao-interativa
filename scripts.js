@@ -7,6 +7,7 @@ let thanks = document.querySelector('.thanks');
 // Cria uma variável para armazenar a nota selecionada (começa em 0)
 let rate = 0;
 
+
 // Loop para percorrer todos os botões de nota
 for(let i = 0; i < buttons.length; i++){
     // Adiciona um evento de clique em cada botão
@@ -22,6 +23,7 @@ btn.onclick = function(){
     if(rate != 0){ // Só funciona se uma nota tiver sido escolhida
         thanks.classList.add('active'); // Mostra a tela de agradecimento
         rated.innerText = rate; // Insere a nota escolhida no elemento 'rated'
+
     }
 }
 

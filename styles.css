@@ -200,6 +200,7 @@ body{
     .card{
         width: 100%;
         padding: 22px;
+        overflow: hidden; /* Garante que nada estoura na tela */
     }
     .card .star{
         width: 40px;
@@ -220,9 +221,17 @@ body{
         height: 35px;
     }
     .card .thanks{
-        margin-top: 20px;
+        margin-top: 0; /* Tira o margin-top extra */
+        padding: 20px; /* Garante respiro interno */
+        height: 100%; /* Mantém */
+        box-sizing: border-box; /* Inclui padding no height */
+    }
+    .card .thanks img {
+        max-width: 100%; /* Evita imagem maior que o card */
+        height: auto;
     }
     .card .thanks p{
         font-size: 12px;
     }
+    
 }
